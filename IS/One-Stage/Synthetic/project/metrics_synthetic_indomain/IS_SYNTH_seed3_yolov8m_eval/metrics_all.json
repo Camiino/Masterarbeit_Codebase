@@ -1,0 +1,77 @@
+{
+  "model": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/runs_is/IS_SYNTH_seed3_yolov8m/weights/best.pt",
+  "imgsz": 640,
+  "device": "0",
+  "datasets": [
+    {
+      "name": "internal",
+      "paths": {
+        "gt": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/metrics_synthetic_indomain/IS_SYNTH_seed3_yolov8m_eval/internal/gt_test_internal.json",
+        "preds": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/metrics_synthetic_indomain/IS_SYNTH_seed3_yolov8m_eval/internal/preds_test_internal.json",
+        "metrics": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/metrics_synthetic_indomain/IS_SYNTH_seed3_yolov8m_eval/internal/metrics.json"
+      },
+      "results": {
+        "dataset": "/home/iat/Documents/Subie_Master/IS/_Shared/data/is/synthetic_yolo_splits",
+        "split": "test_internal",
+        "all": {
+          "AP_50_95": 0.799279832859413,
+          "AP_50": 0.9613147926013677,
+          "AP_75": 0.9340928319090107,
+          "AR_1": 0.1118068205354897,
+          "AR_10": 0.7272609940678415,
+          "AR_100": 0.8339609656752143
+        },
+        "per_class": {
+          "hex": {
+            "AP_50_95": 0.8422487433004979,
+            "AP_50": 0.9971944257153894,
+            "AP_75": 0.9856060662339906,
+            "AR_1": 0.10711462450592886,
+            "AR_10": 0.7541501976284584,
+            "AR_100": 0.8790513833992094
+          },
+          "hex_socket": {
+            "AP_50_95": 0.8509891929680081,
+            "AP_50": 1.0,
+            "AP_75": 0.9899393165122965,
+            "AR_1": 0.1150537634408602,
+            "AR_10": 0.7655913978494624,
+            "AR_100": 0.8822580645161292
+          },
+          "phillips": {
+            "AP_50_95": 0.6536727053921892,
+            "AP_50": 0.8478483369896659,
+            "AP_75": 0.7929655934598824,
+            "AR_1": 0.10080971659919027,
+            "AR_10": 0.608502024291498,
+            "AR_100": 0.6931174089068826
+          },
+          "pozidriv": {
+            "AP_50_95": 0.826212559091238,
+            "AP_50": 0.9534915001910285,
+            "AP_75": 0.9512109671832853,
+            "AR_1": 0.10511363636363635,
+            "AR_10": 0.7375,
+            "AR_100": 0.8698863636363636
+          },
+          "slotted": {
+            "AP_50_95": 0.8144934965137867,
+            "AP_50": 0.9994706740567455,
+            "AP_75": 0.9365239262043137,
+            "AR_1": 0.13351351351351354,
+            "AR_10": 0.7675675675675675,
+            "AR_100": 0.8437837837837836
+          },
+          "torx": {
+            "AP_50_95": 0.8080622998907577,
+            "AP_50": 0.9698838186553762,
+            "AP_75": 0.9483111218602972,
+            "AR_1": 0.10923566878980892,
+            "AR_10": 0.7302547770700637,
+            "AR_100": 0.8356687898089172
+          }
+        }
+      }
+    }
+  ]
+}

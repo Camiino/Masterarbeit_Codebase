@@ -1,0 +1,53 @@
+{
+  "model": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Real/project/runs_ad/E1_yolov8m_real_seed2/weights/best.pt",
+  "imgsz": 640,
+  "device": "0",
+  "datasets": [
+    {
+      "name": "internal",
+      "paths": {
+        "gt": "/home/iat/Documents/Subie_Master/ADD/One-Stage/External/project/metrics_kitti/real/E1_yolov8m_real_seed2_kitti_eval/internal/gt_test_external.json",
+        "preds": "/home/iat/Documents/Subie_Master/ADD/One-Stage/External/project/metrics_kitti/real/E1_yolov8m_real_seed2_kitti_eval/internal/preds_test_external.json",
+        "metrics": "/home/iat/Documents/Subie_Master/ADD/One-Stage/External/project/metrics_kitti/real/E1_yolov8m_real_seed2_kitti_eval/internal/metrics.json"
+      },
+      "results": {
+        "dataset": "/home/iat/Documents/Subie_Master/ADD/_Shared/data/ad/kitti_yolo_splits",
+        "split": "test_external",
+        "all": {
+          "AP_50_95": 0.2612653921270521,
+          "AP_50": 0.48327146705436175,
+          "AP_75": 0.2579535322062229,
+          "AR_1": 0.1275946395324864,
+          "AR_10": 0.3458705578554651,
+          "AR_100": 0.3752875321242042
+        },
+        "per_class": {
+          "car": {
+            "AP_50_95": 0.5038965541856849,
+            "AP_50": 0.8212552184762141,
+            "AP_75": 0.5473222889891808,
+            "AR_1": 0.15880761251916659,
+            "AR_10": 0.5624906046120081,
+            "AR_100": 0.5955262920537565
+          },
+          "pedestrian": {
+            "AP_50_95": 0.2658062172845718,
+            "AP_50": 0.5670837927791521,
+            "AP_75": 0.22578448544316965,
+            "AR_1": 0.17283924400084943,
+            "AR_10": 0.364918241664897,
+            "AR_100": 0.4102994266298577
+          },
+          "cyclist": {
+            "AP_50_95": 0.014093404910899467,
+            "AP_50": 0.06147538990771901,
+            "AP_75": 0.0007538221863183774,
+            "AR_1": 0.05113706207744314,
+            "AR_10": 0.11020282728948985,
+            "AR_100": 0.12003687768899815
+          }
+        }
+      }
+    }
+  ]
+}

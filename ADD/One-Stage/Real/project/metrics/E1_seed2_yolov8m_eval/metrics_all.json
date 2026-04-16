@@ -1,0 +1,53 @@
+{
+  "model": "/home/iat/Documents/Subie_Master/One-Stage/Real/project/runs_ad/E1_yolov8m_real_seed2/weights/best.pt",
+  "imgsz": 640,
+  "device": "cuda",
+  "datasets": [
+    {
+      "name": "internal",
+      "paths": {
+        "gt": "/home/iat/Documents/Subie_Master/One-Stage/Real/project/metrics/E1_seed2_yolov8m_eval/internal/gt_test_internal.json",
+        "preds": "/home/iat/Documents/Subie_Master/One-Stage/Real/project/metrics/E1_seed2_yolov8m_eval/internal/preds_test_internal.json",
+        "metrics": "/home/iat/Documents/Subie_Master/One-Stage/Real/project/metrics/E1_seed2_yolov8m_eval/internal/metrics.json"
+      },
+      "results": {
+        "dataset": "/home/iat/Documents/Subie_Master/_Shared/data/ad/bdd_yolo_splits",
+        "split": "test_internal",
+        "all": {
+          "AP_50_95": 0.39320263031246927,
+          "AP_50": 0.676807106618646,
+          "AP_75": 0.393893651733308,
+          "AR_1": 0.14505785837314805,
+          "AR_10": 0.42102307797091726,
+          "AR_100": 0.483217873452025
+        },
+        "per_class": {
+          "car": {
+            "AP_50_95": 0.5066743378432426,
+            "AP_50": 0.8061252156698842,
+            "AP_75": 0.5133259429760143,
+            "AR_1": 0.08145940457865261,
+            "AR_10": 0.4620214194478106,
+            "AR_100": 0.5634395572004061
+          },
+          "pedestrian": {
+            "AP_50_95": 0.348823016686639,
+            "AP_50": 0.6686037564993824,
+            "AP_75": 0.32314646503454997,
+            "AR_1": 0.13168885408509529,
+            "AR_10": 0.3894022448446881,
+            "AR_100": 0.45836596188984596
+          },
+          "cyclist": {
+            "AP_50_95": 0.3241105364075263,
+            "AP_50": 0.5556923476866711,
+            "AP_75": 0.3452085471893598,
+            "AR_1": 0.22202531645569618,
+            "AR_10": 0.4116455696202532,
+            "AR_100": 0.42784810126582273
+          }
+        }
+      }
+    }
+  ]
+}

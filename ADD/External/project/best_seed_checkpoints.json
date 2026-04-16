@@ -1,0 +1,95 @@
+{
+  "selection_metric": "BDD real-target AP_50_95, tie-break AP_50",
+  "checkpoints": [
+    {
+      "model": "FRCNN",
+      "setup": "Mix_30_70",
+      "seed": 3,
+      "AP_50_95": 0.1953586960621897,
+      "AP_50": 0.42213617724645347,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Mixed/project/metrics/MIX_30_70_seed3_frcnn_on_bdd_eval.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Mixed/project/runs_mix_frcnn/MIX_30_70_frcnn_seed3/final.pt"
+    },
+    {
+      "model": "FRCNN",
+      "setup": "Mix_50_50",
+      "seed": 1,
+      "AP_50_95": 0.20517098166809772,
+      "AP_50": 0.44139649229973044,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Mixed/project/metrics/MIX_50_50_seed1_frcnn_on_bdd_eval.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Mixed/project/runs_mix_frcnn/MIX_50_50_frcnn_seed1/final.pt"
+    },
+    {
+      "model": "FRCNN",
+      "setup": "Mix_70_30",
+      "seed": 1,
+      "AP_50_95": 0.22010800390755655,
+      "AP_50": 0.4771625641551346,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Mixed/project/metrics/MIX_70_30_seed1_frcnn_on_bdd_eval.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Mixed/project/runs_mix_frcnn/MIX_70_30_frcnn_seed1/final.pt"
+    },
+    {
+      "model": "FRCNN",
+      "setup": "Real",
+      "seed": 3,
+      "AP_50_95": 0.21810451090649016,
+      "AP_50": 0.4886149256635203,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Real/project/metrics/E6_seed3_frcnn_eval.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Real/project/runs_ad_frcnn/E6_frcnn_real_seed3/final.pt"
+    },
+    {
+      "model": "FRCNN",
+      "setup": "Synthetic",
+      "seed": 1,
+      "AP_50_95": 0.08536453599331287,
+      "AP_50": 0.18907484444787995,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Synthetic/project/metrics/SYNTHIA_seed1_frcnn_on_bdd_eval.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/Two-Stage/Synthetic/project/runs_synthia_frcnn/SYNTHIA_frcnn_seed1/final.pt"
+    },
+    {
+      "model": "YOLO",
+      "setup": "Mix_30_70",
+      "seed": 1,
+      "AP_50_95": 0.2798818205076748,
+      "AP_50": 0.5195210811821823,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Mixed/project/metrics/MIX_30_70_seed1_yolo_dual_eval/internal/metrics.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Mixed/project/runs_mix/MIX_30_70_yolov8m_seed1/weights/best.pt"
+    },
+    {
+      "model": "YOLO",
+      "setup": "Mix_50_50",
+      "seed": 2,
+      "AP_50_95": 0.3071869160874237,
+      "AP_50": 0.5662730430256081,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Mixed/project/metrics/MIX_50_50_seed2_yolo_dual_eval/internal/metrics.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Mixed/project/runs_mix/MIX_50_50_yolov8m_seed2/weights/best.pt"
+    },
+    {
+      "model": "YOLO",
+      "setup": "Mix_70_30",
+      "seed": 2,
+      "AP_50_95": 0.37256490830382605,
+      "AP_50": 0.6545858988469353,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Mixed/project/metrics/MIX_70_30_seed2_yolo_dual_eval/internal/metrics.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Mixed/project/runs_mix/MIX_70_30_yolov8m_seed2/weights/best.pt"
+    },
+    {
+      "model": "YOLO",
+      "setup": "Real",
+      "seed": 2,
+      "AP_50_95": 0.39320263031246927,
+      "AP_50": 0.676807106618646,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Real/project/metrics/E1_seed2_yolov8m_eval/internal/metrics.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Real/project/runs_ad/E1_yolov8m_real_seed2/weights/best.pt"
+    },
+    {
+      "model": "YOLO",
+      "setup": "Synthetic",
+      "seed": 3,
+      "AP_50_95": 0.06511011090139912,
+      "AP_50": 0.14112214938027254,
+      "metric": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Synthetic/project/metrics_synthia/SYNTHIA_seed3_yolov8m_on_bdd_eval/internal/metrics.json",
+      "weights": "/home/iat/Documents/Subie_Master/ADD/One-Stage/Synthetic/project/runs_synthia/SYNTHIA_yolov8m_seed3/weights/best.pt"
+    }
+  ]
+}

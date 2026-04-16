@@ -1,0 +1,21 @@
+\begin{table}
+\centering
+\caption{IS internal real-test performance aggregated across seeds.}
+\label{tab:is_internal_results}
+\begin{tabular}{lllll}
+\toprule
+        Regime & Architecture &      AP$_{50:95}$ &         AP$_{50}$ &         AP$_{75}$ \\
+\midrule
+     Real-only &      YOLOv8m & 0.064 $\pm$ 0.002 & 0.083 $\pm$ 0.003 & 0.076 $\pm$ 0.002 \\
+     Real-only &   FasterRCNN & 0.044 $\pm$ 0.000 & 0.069 $\pm$ 0.001 & 0.059 $\pm$ 0.002 \\
+Synthetic-only &      YOLOv8m & 0.010 $\pm$ 0.002 & 0.028 $\pm$ 0.007 & 0.002 $\pm$ 0.003 \\
+Synthetic-only &   FasterRCNN & 0.006 $\pm$ 0.002 & 0.021 $\pm$ 0.003 & 0.003 $\pm$ 0.001 \\
+  Hybrid 70/30 &      YOLOv8m & 0.061 $\pm$ 0.002 & 0.081 $\pm$ 0.004 & 0.072 $\pm$ 0.002 \\
+  Hybrid 70/30 &   FasterRCNN & 0.033 $\pm$ 0.002 & 0.053 $\pm$ 0.002 & 0.040 $\pm$ 0.003 \\
+  Hybrid 50/50 &      YOLOv8m & 0.060 $\pm$ 0.002 & 0.080 $\pm$ 0.002 & 0.070 $\pm$ 0.004 \\
+  Hybrid 50/50 &   FasterRCNN & 0.033 $\pm$ 0.002 & 0.057 $\pm$ 0.003 & 0.037 $\pm$ 0.004 \\
+  Hybrid 30/70 &      YOLOv8m & 0.053 $\pm$ 0.003 & 0.073 $\pm$ 0.003 & 0.059 $\pm$ 0.003 \\
+  Hybrid 30/70 &   FasterRCNN & 0.026 $\pm$ 0.004 & 0.047 $\pm$ 0.007 & 0.025 $\pm$ 0.005 \\
+\bottomrule
+\end{tabular}
+\end{table}

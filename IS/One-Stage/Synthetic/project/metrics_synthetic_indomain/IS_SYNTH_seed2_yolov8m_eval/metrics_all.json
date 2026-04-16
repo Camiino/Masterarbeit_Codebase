@@ -1,0 +1,77 @@
+{
+  "model": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/runs_is/IS_SYNTH_seed2_yolov8m/weights/best.pt",
+  "imgsz": 640,
+  "device": "0",
+  "datasets": [
+    {
+      "name": "internal",
+      "paths": {
+        "gt": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/metrics_synthetic_indomain/IS_SYNTH_seed2_yolov8m_eval/internal/gt_test_internal.json",
+        "preds": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/metrics_synthetic_indomain/IS_SYNTH_seed2_yolov8m_eval/internal/preds_test_internal.json",
+        "metrics": "/home/iat/Documents/Subie_Master/IS/One-Stage/Synthetic/project/metrics_synthetic_indomain/IS_SYNTH_seed2_yolov8m_eval/internal/metrics.json"
+      },
+      "results": {
+        "dataset": "/home/iat/Documents/Subie_Master/IS/_Shared/data/is/synthetic_yolo_splits",
+        "split": "test_internal",
+        "all": {
+          "AP_50_95": 0.7963317223218374,
+          "AP_50": 0.9481780146371216,
+          "AP_75": 0.9330085760834967,
+          "AR_1": 0.11364278940543743,
+          "AR_10": 0.725535914298025,
+          "AR_100": 0.8286436830598478
+        },
+        "per_class": {
+          "hex": {
+            "AP_50_95": 0.8425256582733189,
+            "AP_50": 0.9883248637942189,
+            "AP_75": 0.9883248637942189,
+            "AR_1": 0.10711462450592886,
+            "AR_10": 0.7577075098814229,
+            "AR_100": 0.8822134387351779
+          },
+          "hex_socket": {
+            "AP_50_95": 0.8539863631863,
+            "AP_50": 1.0,
+            "AP_75": 1.0,
+            "AR_1": 0.11451612903225805,
+            "AR_10": 0.7623655913978495,
+            "AR_100": 0.8801075268817204
+          },
+          "phillips": {
+            "AP_50_95": 0.596603944719573,
+            "AP_50": 0.7502751415269004,
+            "AP_75": 0.7373755790651644,
+            "AR_1": 0.10080971659919027,
+            "AR_10": 0.5647773279352226,
+            "AR_100": 0.625910931174089
+          },
+          "pozidriv": {
+            "AP_50_95": 0.8309792759642356,
+            "AP_50": 0.9608557447351346,
+            "AP_75": 0.9608557447351346,
+            "AR_1": 0.10909090909090909,
+            "AR_10": 0.7426136363636364,
+            "AR_100": 0.877840909090909
+          },
+          "slotted": {
+            "AP_50_95": 0.8159918017764405,
+            "AP_50": 0.999576391496689,
+            "AP_75": 0.9446046511735311,
+            "AR_1": 0.1356756756756757,
+            "AR_10": 0.7681081081081083,
+            "AR_100": 0.8443243243243241
+          },
+          "torx": {
+            "AP_50_95": 0.8379032900111566,
+            "AP_50": 0.9900359462697862,
+            "AP_75": 0.9668906177329315,
+            "AR_1": 0.11464968152866242,
+            "AR_10": 0.7576433121019109,
+            "AR_100": 0.8614649681528663
+          }
+        }
+      }
+    }
+  ]
+}

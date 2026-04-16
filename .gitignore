@@ -1,0 +1,42 @@
+# Python/runtime caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.venv/
+venv/
+env/
+
+# Dataset archives and extracted/prepared datasets
+ADD/_Shared/downloads/
+IS/_Shared/downloads/
+ADD/_Shared/data/
+IS/_Shared/data/
+
+# Large local tooling/downloaded package caches
+ADD/_Shared/tools/
+IS/_Shared/tools/
+
+# Model checkpoints and training run directories
+ADD/_Shared/models/
+ADD/**/runs_*/
+IS/**/runs_*/
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Generated logs
+ADD/External/project/logs/
+*.log
+
+# Large derived evaluation dumps; compact metrics summaries remain trackable
+**/gt_*.json
+**/preds_*.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

@@ -1,0 +1,77 @@
+{
+  "model": "/home/iat/Documents/Subie_Master/IS/One-Stage/Real/project/runs_is/IS_REAL_seed3_yolov8m/weights/best.pt",
+  "imgsz": 640,
+  "device": "0",
+  "datasets": [
+    {
+      "name": "internal",
+      "paths": {
+        "gt": "/home/iat/Documents/Subie_Master/IS/One-Stage/Real/project/metrics/IS_REAL_seed3_yolov8m_eval/internal/gt_test_internal.json",
+        "preds": "/home/iat/Documents/Subie_Master/IS/One-Stage/Real/project/metrics/IS_REAL_seed3_yolov8m_eval/internal/preds_test_internal.json",
+        "metrics": "/home/iat/Documents/Subie_Master/IS/One-Stage/Real/project/metrics/IS_REAL_seed3_yolov8m_eval/internal/metrics.json"
+      },
+      "results": {
+        "dataset": "/home/iat/Documents/Subie_Master/IS/_Shared/data/is/real_yolo_splits",
+        "split": "test_internal",
+        "all": {
+          "AP_50_95": 0.06172511543127742,
+          "AP_50": 0.08056221152221804,
+          "AP_75": 0.0743052839362454,
+          "AR_1": 0.026226415094339622,
+          "AR_10": 0.07547169811320756,
+          "AR_100": 0.0788679245283019
+        },
+        "per_class": {
+          "hex": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          },
+          "hex_socket": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          },
+          "phillips": {
+            "AP_50_95": 0.12345023086255486,
+            "AP_50": 0.16112442304443608,
+            "AP_75": 0.1486105678724908,
+            "AR_1": 0.052452830188679245,
+            "AR_10": 0.1509433962264151,
+            "AR_100": 0.1577358490566038
+          },
+          "pozidriv": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          },
+          "slotted": {
+            "AP_50_95": 0.0,
+            "AP_50": 0.0,
+            "AP_75": 0.0,
+            "AR_1": 0.0,
+            "AR_10": 0.0,
+            "AR_100": 0.0
+          },
+          "torx": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          }
+        }
+      }
+    }
+  ]
+}

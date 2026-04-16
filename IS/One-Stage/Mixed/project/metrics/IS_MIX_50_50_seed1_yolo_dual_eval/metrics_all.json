@@ -1,0 +1,147 @@
+{
+  "model": "/home/iat/Documents/Subie_Master/IS/One-Stage/Mixed/project/runs_is_mix/IS_MIX_50_50_seed1_yolov8m/weights/best.pt",
+  "imgsz": 640,
+  "device": "0",
+  "datasets": [
+    {
+      "name": "internal",
+      "paths": {
+        "gt": "/home/iat/Documents/Subie_Master/IS/One-Stage/Mixed/project/metrics/IS_MIX_50_50_seed1_yolo_dual_eval/internal/gt_test_internal.json",
+        "preds": "/home/iat/Documents/Subie_Master/IS/One-Stage/Mixed/project/metrics/IS_MIX_50_50_seed1_yolo_dual_eval/internal/preds_test_internal.json",
+        "metrics": "/home/iat/Documents/Subie_Master/IS/One-Stage/Mixed/project/metrics/IS_MIX_50_50_seed1_yolo_dual_eval/internal/metrics.json"
+      },
+      "results": {
+        "dataset": "/home/iat/Documents/Subie_Master/IS/_Shared/data/is/real_yolo_splits",
+        "split": "test_internal",
+        "all": {
+          "AP_50_95": 0.05749415685164032,
+          "AP_50": 0.07903779815342006,
+          "AP_75": 0.06603467660723318,
+          "AR_1": 0.02660377358490566,
+          "AR_10": 0.06981132075471698,
+          "AR_100": 0.07622641509433963
+        },
+        "per_class": {
+          "hex": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          },
+          "hex_socket": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          },
+          "phillips": {
+            "AP_50_95": 0.11498831370328064,
+            "AP_50": 0.15807559630684012,
+            "AP_75": 0.13206935321446636,
+            "AR_1": 0.05320754716981132,
+            "AR_10": 0.13962264150943396,
+            "AR_100": 0.15245283018867925
+          },
+          "pozidriv": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          },
+          "slotted": {
+            "AP_50_95": 0.0,
+            "AP_50": 0.0,
+            "AP_75": 0.0,
+            "AR_1": 0.0,
+            "AR_10": 0.0,
+            "AR_100": 0.0
+          },
+          "torx": {
+            "AP_50_95": -1.0,
+            "AP_50": -1.0,
+            "AP_75": -1.0,
+            "AR_1": -1.0,
+            "AR_10": -1.0,
+            "AR_100": -1.0
+          }
+        }
+      }
+    },
+    {
+      "name": "synthetic",
+      "paths": {
+        "gt": "/home/iat/Documents/Subie_Master/IS/One-Stage/Mixed/project/metrics/IS_MIX_50_50_seed1_yolo_dual_eval/synthetic/gt_test_internal.json",
+        "preds": "/home/iat/Documents/Subie_Master/IS/One-Stage/Mixed/project/metrics/IS_MIX_50_50_seed1_yolo_dual_eval/synthetic/preds_test_internal.json",
+        "metrics": "/home/iat/Documents/Subie_Master/IS/One-Stage/Mixed/project/metrics/IS_MIX_50_50_seed1_yolo_dual_eval/synthetic/metrics.json"
+      },
+      "results": {
+        "dataset": "/home/iat/Documents/Subie_Master/IS/_Shared/data/is/synthetic_yolo_splits",
+        "split": "test_internal",
+        "all": {
+          "AP_50_95": 0.5403480645038261,
+          "AP_50": 0.7080756905008153,
+          "AP_75": 0.6574639064611633,
+          "AR_1": 0.10060030143207478,
+          "AR_10": 0.5732915238472082,
+          "AR_100": 0.6411380257871646
+        },
+        "per_class": {
+          "hex": {
+            "AP_50_95": 0.692025722515404,
+            "AP_50": 0.9111753438534287,
+            "AP_75": 0.8795435873415173,
+            "AR_1": 0.10553359683794465,
+            "AR_10": 0.6482213438735178,
+            "AR_100": 0.7407114624505928
+          },
+          "hex_socket": {
+            "AP_50_95": 0.7344485824224621,
+            "AP_50": 0.9110963434430293,
+            "AP_75": 0.8613228565143598,
+            "AR_1": 0.1150537634408602,
+            "AR_10": 0.6913978494623656,
+            "AR_100": 0.7817204301075269
+          },
+          "phillips": {
+            "AP_50_95": 0.2888514723052872,
+            "AP_50": 0.4288295951209254,
+            "AP_75": 0.3324791631042141,
+            "AR_1": 0.07732793522267206,
+            "AR_10": 0.374089068825911,
+            "AR_100": 0.45506072874493925
+          },
+          "pozidriv": {
+            "AP_50_95": 0.36297424458788363,
+            "AP_50": 0.46293441222863774,
+            "AP_75": 0.44939218066268144,
+            "AR_1": 0.08295454545454545,
+            "AR_10": 0.4914772727272728,
+            "AR_100": 0.5301136363636363
+          },
+          "slotted": {
+            "AP_50_95": 0.5983244260364559,
+            "AP_50": 0.780187307506759,
+            "AP_75": 0.7338243398394186,
+            "AR_1": 0.12432432432432435,
+            "AR_10": 0.6740540540540542,
+            "AR_100": 0.7086486486486487
+          },
+          "torx": {
+            "AP_50_95": 0.5654639391554632,
+            "AP_50": 0.7542311408521123,
+            "AP_75": 0.6882213113047889,
+            "AR_1": 0.09840764331210192,
+            "AR_10": 0.5605095541401274,
+            "AR_100": 0.6305732484076434
+          }
+        }
+      }
+    }
+  ]
+}
