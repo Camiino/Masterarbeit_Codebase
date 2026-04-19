@@ -1,21 +1,20 @@
 \begin{table}
-\centering
-\caption{IS class-specific AP on the internal real test set.}
+\caption{Per-class internal real-test AP on the IS scenario.}
 \label{tab:is_class_ap}
-\begin{tabular}{llllllll}
+\begin{tabular}{llrrrrrr}
 \toprule
-        Regime & Architecture & hex & hex_socket &          phillips & pozidriv &           slotted & torx \\
+Architecture & Regime & hex & hex_socket & phillips & pozidriv & slotted & torx \\
 \midrule
-     Real-only &      YOLOv8m &  -- &         -- & 0.128 $\pm$ 0.005 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-     Real-only &   FasterRCNN &  -- &         -- & 0.088 $\pm$ 0.001 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-Synthetic-only &      YOLOv8m &  -- &         -- & 0.020 $\pm$ 0.004 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-Synthetic-only &   FasterRCNN &  -- &         -- & 0.013 $\pm$ 0.003 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-  Hybrid 70/30 &      YOLOv8m &  -- &         -- & 0.122 $\pm$ 0.005 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-  Hybrid 70/30 &   FasterRCNN &  -- &         -- & 0.066 $\pm$ 0.004 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-  Hybrid 50/50 &      YOLOv8m &  -- &         -- & 0.119 $\pm$ 0.004 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-  Hybrid 50/50 &   FasterRCNN &  -- &         -- & 0.066 $\pm$ 0.004 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-  Hybrid 30/70 &      YOLOv8m &  -- &         -- & 0.106 $\pm$ 0.005 &       -- & 0.000 $\pm$ 0.000 &   -- \\
-  Hybrid 30/70 &   FasterRCNN &  -- &         -- & 0.052 $\pm$ 0.007 &       -- & 0.000 $\pm$ 0.000 &   -- \\
+YOLOv8m & Real-only & -- & -- & 0.128 $\pm$ 0.005 & -- & 0 & -- \\
+YOLOv8m & Synthetic-only & -- & -- & 0.02 $\pm$ 0.004 & -- & 0 & -- \\
+YOLOv8m & Hybrid 70/30 & -- & -- & 0.122 $\pm$ 0.005 & -- & 0 & -- \\
+YOLOv8m & Hybrid 50/50 & -- & -- & 0.119 $\pm$ 0.004 & -- & 0 & -- \\
+YOLOv8m & Hybrid 30/70 & -- & -- & 0.106 $\pm$ 0.005 & -- & 0 & -- \\
+Faster R-CNN & Real-only & -- & -- & 0.088 $\pm$ 0.001 & -- & 0 & -- \\
+Faster R-CNN & Synthetic-only & -- & -- & 0.013 $\pm$ 0.003 & -- & 0 & -- \\
+Faster R-CNN & Hybrid 70/30 & -- & -- & 0.066 $\pm$ 0.004 & -- & 0 & -- \\
+Faster R-CNN & Hybrid 50/50 & -- & -- & 0.066 $\pm$ 0.004 & -- & 0 & -- \\
+Faster R-CNN & Hybrid 30/70 & -- & -- & 0.052 $\pm$ 0.007 & -- & 0 & -- \\
 \bottomrule
 \end{tabular}
 \end{table}

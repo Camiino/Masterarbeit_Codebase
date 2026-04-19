@@ -1,21 +1,20 @@
 \begin{table}
-\centering
-\caption{IS internal real-test performance aggregated across seeds.}
+\caption{Internal evaluation on the IS real test set (mean $\pm$ standard deviation across three seeds).}
 \label{tab:is_internal_results}
-\begin{tabular}{lllll}
+\begin{tabular}{llrrrrrr}
 \toprule
-        Regime & Architecture &      AP$_{50:95}$ &         AP$_{50}$ &         AP$_{75}$ \\
+Architecture & Regime & AP$_{50:95}$ & AP$_{50}$ & AP$_{75}$ & AR$_{1}$ & AR$_{10}$ & AR$_{100}$ \\
 \midrule
-     Real-only &      YOLOv8m & 0.064 $\pm$ 0.002 & 0.083 $\pm$ 0.003 & 0.076 $\pm$ 0.002 \\
-     Real-only &   FasterRCNN & 0.044 $\pm$ 0.000 & 0.069 $\pm$ 0.001 & 0.059 $\pm$ 0.002 \\
-Synthetic-only &      YOLOv8m & 0.010 $\pm$ 0.002 & 0.028 $\pm$ 0.007 & 0.002 $\pm$ 0.003 \\
-Synthetic-only &   FasterRCNN & 0.006 $\pm$ 0.002 & 0.021 $\pm$ 0.003 & 0.003 $\pm$ 0.001 \\
-  Hybrid 70/30 &      YOLOv8m & 0.061 $\pm$ 0.002 & 0.081 $\pm$ 0.004 & 0.072 $\pm$ 0.002 \\
-  Hybrid 70/30 &   FasterRCNN & 0.033 $\pm$ 0.002 & 0.053 $\pm$ 0.002 & 0.040 $\pm$ 0.003 \\
-  Hybrid 50/50 &      YOLOv8m & 0.060 $\pm$ 0.002 & 0.080 $\pm$ 0.002 & 0.070 $\pm$ 0.004 \\
-  Hybrid 50/50 &   FasterRCNN & 0.033 $\pm$ 0.002 & 0.057 $\pm$ 0.003 & 0.037 $\pm$ 0.004 \\
-  Hybrid 30/70 &      YOLOv8m & 0.053 $\pm$ 0.003 & 0.073 $\pm$ 0.003 & 0.059 $\pm$ 0.003 \\
-  Hybrid 30/70 &   FasterRCNN & 0.026 $\pm$ 0.004 & 0.047 $\pm$ 0.007 & 0.025 $\pm$ 0.005 \\
+YOLOv8m & Real-only & 0.064 $\pm$ 0.002 & 0.083 $\pm$ 0.003 & 0.076 $\pm$ 0.002 & 0.026 $\pm$ 0 & 0.075 $\pm$ 0.001 & 0.079 $\pm$ 0.001 \\
+YOLOv8m & Synthetic-only & 0.01 $\pm$ 0.002 & 0.028 $\pm$ 0.007 & 0.002 $\pm$ 0.003 & 0.01 $\pm$ 0.003 & 0.026 $\pm$ 0.002 & 0.026 $\pm$ 0.001 \\
+YOLOv8m & Hybrid 70/30 & 0.061 $\pm$ 0.002 & 0.081 $\pm$ 0.004 & 0.072 $\pm$ 0.002 & 0.027 $\pm$ 0.001 & 0.071 $\pm$ 0 & 0.076 $\pm$ 0.002 \\
+YOLOv8m & Hybrid 50/50 & 0.06 $\pm$ 0.002 & 0.08 $\pm$ 0.002 & 0.07 $\pm$ 0.004 & 0.027 $\pm$ 0 & 0.07 $\pm$ 0.001 & 0.075 $\pm$ 0.001 \\
+YOLOv8m & Hybrid 30/70 & 0.053 $\pm$ 0.003 & 0.073 $\pm$ 0.003 & 0.059 $\pm$ 0.003 & 0.025 $\pm$ 0.001 & 0.063 $\pm$ 0.004 & 0.066 $\pm$ 0.003 \\
+Faster R-CNN & Real-only & 0.044 $\pm$ 0 & 0.069 $\pm$ 0.001 & 0.059 $\pm$ 0.002 & 0.023 $\pm$ 0.001 & 0.068 $\pm$ 0.001 & 0.07 $\pm$ 0.002 \\
+Faster R-CNN & Synthetic-only & 0.006 $\pm$ 0.002 & 0.021 $\pm$ 0.003 & 0.003 $\pm$ 0.001 & 0.012 $\pm$ 0.001 & 0.031 $\pm$ 0.004 & 0.031 $\pm$ 0.004 \\
+Faster R-CNN & Hybrid 70/30 & 0.033 $\pm$ 0.002 & 0.053 $\pm$ 0.002 & 0.04 $\pm$ 0.003 & 0.023 $\pm$ 0.001 & 0.065 $\pm$ 0.002 & 0.068 $\pm$ 0.001 \\
+Faster R-CNN & Hybrid 50/50 & 0.033 $\pm$ 0.002 & 0.057 $\pm$ 0.003 & 0.037 $\pm$ 0.004 & 0.02 $\pm$ 0.001 & 0.061 $\pm$ 0.003 & 0.064 $\pm$ 0.002 \\
+Faster R-CNN & Hybrid 30/70 & 0.026 $\pm$ 0.004 & 0.047 $\pm$ 0.007 & 0.025 $\pm$ 0.005 & 0.019 $\pm$ 0.002 & 0.057 $\pm$ 0.001 & 0.059 $\pm$ 0.001 \\
 \bottomrule
 \end{tabular}
 \end{table}

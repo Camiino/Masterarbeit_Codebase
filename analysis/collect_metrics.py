@@ -62,35 +62,40 @@ def seed_from_path(path: Path) -> int | None:
 
 
 def infer_architecture(path: Path) -> str:
-    text = str(path)
-    if "/One-Stage/" in text:
+    parts = set(path.parts)
+    if "One-Stage" in parts:
         return "YOLOv8m"
-    if "/Two-Stage/" in text:
+    if "Two-Stage" in parts:
         return "FasterRCNN"
     raise ValueError(f"Cannot infer architecture from {path}")
 
 
 def infer_regime(path: Path) -> str:
     text = str(path)
-    if re.search(r"MIX[_-]70[_-]30|mixed.*70.*30", text):
+    if re.search(r"MIX[_-]70[_-]30|mixed.*70.*30", text, flags=re.IGNORECASE):
         return "hybrid_70_30"
-    if re.search(r"MIX[_-]50[_-]50|mixed.*50.*50", text):
+    if re.search(r"MIX[_-]50[_-]50|mixed.*50.*50", text, flags=re.IGNORECASE):
         return "hybrid_50_50"
-    if re.search(r"MIX[_-]30[_-]70|mixed.*30.*70", text):
+    if re.search(r"MIX[_-]30[_-]70|mixed.*30.*70", text, flags=re.IGNORECASE):
         return "hybrid_30_70"
-    if "/Synthetic/" in text or "SYNTHIA_" in text or "IS_SYNTH" in text:
+    parts = set(path.parts)
+    if "Synthetic" in parts or "SYNTHIA_" in text or "IS_SYNTH" in text:
         return "synthetic_only"
-    if "/Real/" in text or "E1_" in text or "E6_" in text or "IS_REAL" in text:
+    if "Real" in parts or "E1_" in text or "E6_" in text or "IS_REAL" in text:
         return "real_only"
     raise ValueError(f"Cannot infer regime from {path}")
 
 
 def infer_eval(path: Path, scenario: str) -> tuple[str, str]:
     text = str(path)
-    if "metrics_kitti" in text or "kitti_eval" in text:
+    norm_text = text.replace("\\", "/")
+    parts = set(path.parts)
+    if "metrics_kitti" in norm_text or "kitti_eval" in norm_text:
         return "external", "KITTI"
 
     if scenario == "ADD":
+        if "on_bdd_eval" in norm_text or "on_real_eval" in norm_text:
+            return "real_internal", "BDD"
         synthetic_tokens = [
             "on_synthia",
             "metrics_synthia_transfer",
@@ -98,9 +103,12 @@ def infer_eval(path: Path, scenario: str) -> tuple[str, str]:
             "/synthia/metrics.json",
             "/metrics_indomain/SYNTHIA_",
         ]
-        if any(token in text for token in synthetic_tokens):
+        if any(token in norm_text for token in synthetic_tokens) or "synthia" in {p.lower() for p in parts}:
             return "synthetic_internal", "SYNTHIA"
         return "real_internal", "BDD"
+
+    if "on_real_eval" in norm_text:
+        return "real_internal", "IS_real"
 
     synthetic_tokens = [
         "on_synthetic",
@@ -108,7 +116,7 @@ def infer_eval(path: Path, scenario: str) -> tuple[str, str]:
         "/synthetic/metrics.json",
         "/metrics_indomain/IS_SYNTH",
     ]
-    if any(token in text for token in synthetic_tokens):
+    if any(token in norm_text for token in synthetic_tokens) or "synthetic" in {p.lower() for p in parts}:
         return "synthetic_internal", "IS_synth"
     return "real_internal", "IS_real"
 

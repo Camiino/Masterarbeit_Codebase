@@ -19,10 +19,14 @@ analysis/
   collect_metrics.py       # normalize ADD/IS metric JSONs into one long CSV
   aggregate_results.py     # aggregate internal metrics, KITTI metrics, deltas, gaps
   summarize_effects.py     # descriptive effect summaries for thesis research questions
+  thesis_style.py          # shared thesis terminology, labels, and output paths
   plot_results.py          # thesis-ready PDF/PNG figures
   export_latex_tables.py   # LaTeX tables for thesis inclusion
+  export_qualitative_examples.py  # qualitative export or precise missing-artifact report
+  write_results_inventory.py      # inventory of outputs mapped to thesis subsections
+  write_thesis_summary.py         # concise thesis-facing result summary
   run_analysis.sh          # one-command analysis pipeline
-  outputs/                 # generated CSVs, figures, and LaTeX tables
+  outputs/                 # generated CSVs, figures, LaTeX tables, and markdown summaries
 
 <SCENARIO>/
   One-Stage/
@@ -227,6 +231,9 @@ python analysis/aggregate_results.py
 python analysis/summarize_effects.py
 python analysis/plot_results.py
 python analysis/export_latex_tables.py
+python analysis/export_qualitative_examples.py
+python analysis/write_results_inventory.py
+python analysis/write_thesis_summary.py
 ```
 
 Generated CSV outputs:
@@ -252,7 +259,21 @@ analysis/outputs/figures/
 
 The main figures include ADD and IS internal real-test regime comparisons, ADD KITTI
 external comparison, deltas versus real-only training, ADD-vs-IS scale comparison,
-class-AP heatmaps, and synthetic-to-real gap plots.
+class-AP heatmaps, synthetic-to-real gap plots, a compact architecture-gap summary,
+and a seed-stability figure:
+
+```text
+add_internal_real_regime_comparison
+add_kitti_external_comparison
+is_internal_real_regime_comparison
+delta_vs_real_internal
+scale_delta_comparison
+class_heatmap_add_real_internal
+class_heatmap_is_real_internal
+synthetic_to_real_gap
+architecture_gap_summary
+seed_stability_internal_ap50_95
+```
 
 Generated LaTeX tables are written under:
 
@@ -269,7 +290,22 @@ table_is_internal.tex
 table_class_ap_add.tex
 table_class_ap_is.tex
 table_effect_deltas.tex
+table_scale_delta_comparison.tex
+table_seed_stability_internal.tex
 ```
+
+Additional thesis-facing markdown outputs are written under:
+
+```text
+analysis/outputs/RESULTS_INVENTORY.md
+analysis/outputs/THESIS_RESULTS_SUMMARY.md
+analysis/outputs/qualitative/QUALITATIVE_STATUS.md
+```
+
+The qualitative export step currently writes a reproducible status report rather than
+overlay figures, because the committed repository does not include the ignored
+`gt_*.json`, `preds_*.json`, or dataset image roots needed to reconstruct bounding-box
+examples without rerunning evaluation.
 
 KITTI remains a separate external generalization evaluation. KITTI selected-seed
 metadata is retained in the CSV files for reproducibility, but the thesis-facing KITTI

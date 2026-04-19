@@ -1,0 +1,18 @@
+\begin{table}
+\caption{Cross-scenario comparison of regime deltas relative to real-only training.}
+\label{tab:scale_delta_comparison}
+\begin{tabular}{llrr}
+\toprule
+Architecture & Regime & ADD & IS \\
+\midrule
+YOLOv8m & Synthetic-only & -0.328 & -0.054 \\
+YOLOv8m & Hybrid 70/30 & -0.019 & -0.003 \\
+YOLOv8m & Hybrid 50/50 & -0.085 & -0.005 \\
+YOLOv8m & Hybrid 30/70 & -0.11 & -0.011 \\
+Faster R-CNN & Synthetic-only & -0.134 & -0.038 \\
+Faster R-CNN & Hybrid 70/30 & 0.002 & -0.011 \\
+Faster R-CNN & Hybrid 50/50 & -0.012 & -0.011 \\
+Faster R-CNN & Hybrid 30/70 & -0.023 & -0.018 \\
+\bottomrule
+\end{tabular}
+\end{table}

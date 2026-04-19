@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export compact LaTeX tables for thesis inclusion."""
+"""Export compact thesis-ready LaTeX tables."""
 
 from __future__ import annotations
 
@@ -8,23 +8,16 @@ from pathlib import Path
 
 import pandas as pd
 
-
-ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = ROOT / "analysis" / "outputs"
-TABLE_DIR = OUT_DIR / "tables"
-REGIME_ORDER = ["real_only", "synthetic_only", "hybrid_70_30", "hybrid_50_50", "hybrid_30_70"]
-REGIME_LABELS = {
-    "real_only": "Real-only",
-    "synthetic_only": "Synthetic-only",
-    "hybrid_70_30": "Hybrid 70/30",
-    "hybrid_50_50": "Hybrid 50/50",
-    "hybrid_30_70": "Hybrid 30/70",
-}
-METRIC_LABELS = {
-    "AP_50_95": "AP$_{50:95}$",
-    "AP_50": "AP$_{50}$",
-    "AP_75": "AP$_{75}$",
-}
+from thesis_style import (
+    ARCH_LABELS,
+    ARCH_ORDER,
+    METRIC_LABELS,
+    METRIC_ORDER,
+    OUT_DIR,
+    REGIME_LABELS,
+    REGIME_ORDER,
+    TABLE_DIR as DEFAULT_TABLE_DIR,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,37 +26,59 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def fmt_float(value: float) -> str:
+    if pd.isna(value):
+        return "--"
+    return f"{value:.3f}".rstrip("0").rstrip(".")
+
+
 def fmt_mean_std(mean: float, std: float) -> str:
     if pd.isna(mean):
         return "--"
-    return f"{mean:.3f} $\\pm$ {0.0 if pd.isna(std) else std:.3f}"
-
-
-def fmt_value(value: float) -> str:
-    return "--" if pd.isna(value) else f"{value:.3f}"
+    if pd.isna(std) or std == 0:
+        return fmt_float(mean)
+    return f"{fmt_float(mean)} $\\pm$ {fmt_float(std)}"
 
 
 def write_table(df: pd.DataFrame, path: Path, caption: str, label: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    text = df.to_latex(index=False, escape=False, caption=caption, label=label)
-    path.write_text(text, encoding="utf-8")
+    latex = df.to_latex(
+        index=False,
+        escape=False,
+        caption=caption,
+        label=label,
+        column_format="ll" + "r" * (len(df.columns) - 2),
+    )
+    path.write_text(latex, encoding="utf-8")
 
 
-def internal_table(out_dir: Path, scenario: str, dataset: str, path: Path, caption: str, label: str) -> None:
+def add_pretty_names(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    out["architecture_label"] = out["architecture"].map(ARCH_LABELS).fillna(out["architecture"])
+    out["regime_label"] = out["regime"].map(REGIME_LABELS).fillna(out["regime"])
+    return out
+
+
+def internal_main_table(out_dir: Path, scenario: str, dataset: str, path: Path, caption: str, label: str) -> None:
     df = pd.read_csv(out_dir / "internal_summary.csv")
-    sub = df[
-        (df["scenario"] == scenario)
-        & (df["eval_domain"] == "real_internal")
-        & (df["eval_dataset"] == dataset)
-        & (df["metric"].isin(["AP_50_95", "AP_50", "AP_75"]))
-        & (df["class"] == "all")
-    ].copy()
+    df = add_pretty_names(
+        df[
+            (df["scenario"] == scenario)
+            & (df["eval_domain"] == "real_internal")
+            & (df["eval_dataset"] == dataset)
+            & (df["class"] == "all")
+        ].copy()
+    )
     rows = []
-    for regime in REGIME_ORDER:
-        for arch in ["YOLOv8m", "FasterRCNN"]:
-            rec = {"Regime": REGIME_LABELS[regime], "Architecture": arch}
-            for metric in ["AP_50_95", "AP_50", "AP_75"]:
-                row = sub[(sub["regime"] == regime) & (sub["architecture"] == arch) & (sub["metric"] == metric)]
+    for arch in ARCH_ORDER:
+        for regime in REGIME_ORDER:
+            sub = df[(df["architecture"] == arch) & (df["regime"] == regime)]
+            rec = {
+                "Architecture": ARCH_LABELS[arch],
+                "Regime": REGIME_LABELS[regime],
+            }
+            for metric in METRIC_ORDER:
+                row = sub[sub["metric"] == metric]
                 rec[METRIC_LABELS[metric]] = (
                     fmt_mean_std(float(row["mean"].iloc[0]), float(row["std"].iloc[0])) if not row.empty else "--"
                 )
@@ -71,53 +86,54 @@ def internal_table(out_dir: Path, scenario: str, dataset: str, path: Path, capti
     write_table(pd.DataFrame(rows), path, caption, label)
 
 
-def kitti_table(out_dir: Path) -> None:
+def kitti_table(out_dir: Path, path: Path, caption: str, label: str) -> None:
     df = pd.read_csv(out_dir / "kitti_summary.csv")
-    sub = df[(df["metric"].isin(["AP_50_95", "AP_50", "AP_75"])) & (df["class"] == "all")].copy()
+    df = add_pretty_names(df[(df["class"] == "all") & (df["metric"].isin(["AP_50_95", "AP_50", "AP_75"]))].copy())
     rows = []
-    for regime in REGIME_ORDER:
-        for arch in ["YOLOv8m", "FasterRCNN"]:
-            rec = {"Regime": REGIME_LABELS[regime], "Architecture": arch}
+    for arch in ARCH_ORDER:
+        for regime in REGIME_ORDER:
+            sub = df[(df["architecture"] == arch) & (df["regime"] == regime)]
+            rec = {
+                "Architecture": ARCH_LABELS[arch],
+                "Regime": REGIME_LABELS[regime],
+            }
             for metric in ["AP_50_95", "AP_50", "AP_75"]:
-                row = sub[(sub["regime"] == regime) & (sub["architecture"] == arch) & (sub["metric"] == metric)]
-                if not row.empty:
-                    rec[METRIC_LABELS[metric]] = fmt_value(float(row["value"].iloc[0]))
-                else:
-                    rec[METRIC_LABELS[metric]] = "--"
+                row = sub[sub["metric"] == metric]
+                rec[METRIC_LABELS[metric]] = fmt_float(float(row["value"].iloc[0])) if not row.empty else "--"
             rows.append(rec)
-    write_table(
-        pd.DataFrame(rows),
-        TABLE_DIR / "table_add_kitti.tex",
-        "ADD external KITTI performance.",
-        "tab:add_kitti_results",
-    )
+    write_table(pd.DataFrame(rows), path, caption, label)
 
 
-def class_table(out_dir: Path, scenario: str, dataset: str, path: Path, caption: str, label: str) -> None:
+def class_ap_table(out_dir: Path, scenario: str, dataset: str, path: Path, caption: str, label: str) -> None:
     df = pd.read_csv(out_dir / "class_summary.csv")
-    sub = df[
-        (df["scenario"] == scenario)
-        & (df["eval_domain"] == "real_internal")
-        & (df["eval_dataset"] == dataset)
-        & (df["metric"] == "AP_50_95")
-    ].copy()
-    classes = list(sub["class"].drop_duplicates())
+    df = add_pretty_names(
+        df[
+            (df["scenario"] == scenario)
+            & (df["eval_domain"] == "real_internal")
+            & (df["eval_dataset"] == dataset)
+            & (df["metric"] == "AP_50_95")
+        ].copy()
+    )
+    classes = list(df["class"].drop_duplicates())
     rows = []
-    for regime in REGIME_ORDER:
-        for arch in ["YOLOv8m", "FasterRCNN"]:
-            rec = {"Regime": REGIME_LABELS[regime], "Architecture": arch}
+    for arch in ARCH_ORDER:
+        for regime in REGIME_ORDER:
+            sub = df[(df["architecture"] == arch) & (df["regime"] == regime)]
+            rec = {
+                "Architecture": ARCH_LABELS[arch],
+                "Regime": REGIME_LABELS[regime],
+            }
             for cls in classes:
-                row = sub[(sub["regime"] == regime) & (sub["architecture"] == arch) & (sub["class"] == cls)]
+                row = sub[sub["class"] == cls]
                 rec[cls] = fmt_mean_std(float(row["mean"].iloc[0]), float(row["std"].iloc[0])) if not row.empty else "--"
             rows.append(rec)
     write_table(pd.DataFrame(rows), path, caption, label)
 
 
-def effect_delta_table(out_dir: Path) -> None:
+def effect_delta_table(out_dir: Path, path: Path, caption: str, label: str) -> None:
     df = pd.read_csv(out_dir / "effect_summary.csv")
     sub = df[
         (df["eval_domain"] == "real_internal")
-        & (df["regime"].str.startswith("hybrid"))
         & (df["eval_dataset"].isin(["BDD", "IS_real"]))
     ].copy()
     rows = []
@@ -125,63 +141,132 @@ def effect_delta_table(out_dir: Path) -> None:
         rows.append(
             {
                 "Scenario": row["scenario"],
-                "Architecture": row["architecture"],
+                "Architecture": ARCH_LABELS.get(row["architecture"], row["architecture"]),
                 "Regime": REGIME_LABELS.get(row["regime"], row["regime"]),
-                "AP": fmt_value(row["summary_value"]),
-                "$\\Delta$ vs real": fmt_value(row["delta_vs_real"]),
-                "$\\Delta$ vs synthetic": fmt_value(row["delta_vs_synthetic"]),
-                "YOLO--FRCNN gap": fmt_value(row["architecture_gap"]),
+                METRIC_LABELS["AP_50_95"]: fmt_float(row["summary_value"]),
+                "$\\Delta$ vs Real-only": fmt_float(row["delta_vs_real"]),
+                "$\\Delta$ vs Synthetic-only": fmt_float(row["delta_vs_synthetic"]),
+                "YOLOv8m - Faster R-CNN": fmt_float(row["architecture_gap"]),
             }
         )
-    write_table(
-        pd.DataFrame(rows),
-        TABLE_DIR / "table_effect_deltas.tex",
-        "Hybrid-regime descriptive effects on real internal test sets.",
-        "tab:effect_deltas",
-    )
+    write_table(pd.DataFrame(rows), path, caption, label)
+
+
+def scale_delta_table(out_dir: Path, path: Path, caption: str, label: str) -> None:
+    df = pd.read_csv(out_dir / "delta_vs_real.csv")
+    sub = df[
+        (df["eval_domain"] == "real_internal")
+        & (df["metric"] == "AP_50_95")
+        & (df["class"] == "all")
+        & (df["regime"] != "real_only")
+        & (df["eval_dataset"].isin(["BDD", "IS_real"]))
+    ].copy()
+    rows = []
+    for arch in ARCH_ORDER:
+        for regime in REGIME_ORDER[1:]:
+            rec = {
+                "Architecture": ARCH_LABELS[arch],
+                "Regime": REGIME_LABELS[regime],
+            }
+            for scenario, dataset in [("ADD", "BDD"), ("IS", "IS_real")]:
+                row = sub[
+                    (sub["architecture"] == arch)
+                    & (sub["regime"] == regime)
+                    & (sub["scenario"] == scenario)
+                    & (sub["eval_dataset"] == dataset)
+                ]
+                rec[scenario] = fmt_float(float(row["delta"].iloc[0])) if not row.empty else "--"
+            rows.append(rec)
+    write_table(pd.DataFrame(rows), path, caption, label)
+
+
+def seed_stability_table(out_dir: Path, path: Path, caption: str, label: str) -> None:
+    df = pd.read_csv(out_dir / "internal_summary.csv")
+    sub = df[
+        (df["eval_domain"] == "real_internal")
+        & (df["metric"] == "AP_50_95")
+        & (df["class"] == "all")
+        & (df["eval_dataset"].isin(["BDD", "IS_real"]))
+    ].copy()
+    rows = []
+    for _, row in sub.sort_values(["scenario", "architecture", "regime"]).iterrows():
+        rows.append(
+            {
+                "Scenario": row["scenario"],
+                "Architecture": ARCH_LABELS.get(row["architecture"], row["architecture"]),
+                "Regime": REGIME_LABELS.get(row["regime"], row["regime"]),
+                "Mean": fmt_float(row["mean"]),
+                "Std": fmt_float(row["std"]),
+                "Min": fmt_float(row["min"]),
+                "Max": fmt_float(row["max"]),
+                "n": int(row["n"]),
+            }
+        )
+    write_table(pd.DataFrame(rows), path, caption, label)
 
 
 def main() -> None:
     args = parse_args()
-    global TABLE_DIR
-    TABLE_DIR = args.out_dir / "tables"
-    TABLE_DIR.mkdir(parents=True, exist_ok=True)
+    table_dir = args.out_dir / "tables"
+    table_dir.mkdir(parents=True, exist_ok=True)
 
-    internal_table(
+    internal_main_table(
         args.out_dir,
         "ADD",
         "BDD",
-        TABLE_DIR / "table_add_internal.tex",
-        "ADD internal real-test performance aggregated across seeds.",
+        table_dir / "table_add_internal.tex",
+        "Internal evaluation on the ADD real test set (mean $\\pm$ standard deviation across three seeds).",
         "tab:add_internal_results",
     )
-    internal_table(
+    kitti_table(
+        args.out_dir,
+        table_dir / "table_add_kitti.tex",
+        "External evaluation on KITTI using the selected best seed per setup.",
+        "tab:add_kitti_results",
+    )
+    internal_main_table(
         args.out_dir,
         "IS",
         "IS_real",
-        TABLE_DIR / "table_is_internal.tex",
-        "IS internal real-test performance aggregated across seeds.",
+        table_dir / "table_is_internal.tex",
+        "Internal evaluation on the IS real test set (mean $\\pm$ standard deviation across three seeds).",
         "tab:is_internal_results",
     )
-    kitti_table(args.out_dir)
-    class_table(
+    class_ap_table(
         args.out_dir,
         "ADD",
         "BDD",
-        TABLE_DIR / "table_class_ap_add.tex",
-        "ADD class-specific AP on the internal real test set.",
+        table_dir / "table_class_ap_add.tex",
+        "Per-class internal real-test AP on the ADD scenario.",
         "tab:add_class_ap",
     )
-    class_table(
+    class_ap_table(
         args.out_dir,
         "IS",
         "IS_real",
-        TABLE_DIR / "table_class_ap_is.tex",
-        "IS class-specific AP on the internal real test set.",
+        table_dir / "table_class_ap_is.tex",
+        "Per-class internal real-test AP on the IS scenario.",
         "tab:is_class_ap",
     )
-    effect_delta_table(args.out_dir)
-    print(f"Wrote LaTeX tables to {TABLE_DIR}")
+    effect_delta_table(
+        args.out_dir,
+        table_dir / "table_effect_deltas.tex",
+        "Regime effects relative to real-only and synthetic-only training on internal real-test AP.",
+        "tab:effect_deltas",
+    )
+    scale_delta_table(
+        args.out_dir,
+        table_dir / "table_scale_delta_comparison.tex",
+        "Cross-scenario comparison of regime deltas relative to real-only training.",
+        "tab:scale_delta_comparison",
+    )
+    seed_stability_table(
+        args.out_dir,
+        table_dir / "table_seed_stability_internal.tex",
+        "Seed stability summary for internal real-test AP across scenarios, architectures, and regimes.",
+        "tab:seed_stability",
+    )
+    print(f"Wrote LaTeX tables to {table_dir}")
 
 
 if __name__ == "__main__":

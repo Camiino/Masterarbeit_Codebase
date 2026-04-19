@@ -73,6 +73,32 @@ Two-Stage/Synthetic/project/  # Faster R-CNN synthetic-only runs and metrics
 Two-Stage/Mixed/project/      # Faster R-CNN mixed runs and metrics
 ```
 
+The repository-level thesis analysis pipeline aggregates IS outputs into:
+
+```text
+../analysis/outputs/figures/is_internal_real_regime_comparison.{png,pdf}
+../analysis/outputs/figures/class_heatmap_is_real_internal.{png,pdf}
+../analysis/outputs/figures/delta_vs_real_internal.{png,pdf}
+../analysis/outputs/figures/scale_delta_comparison.{png,pdf}
+../analysis/outputs/figures/synthetic_to_real_gap.{png,pdf}
+../analysis/outputs/figures/architecture_gap_summary.{png,pdf}
+../analysis/outputs/figures/seed_stability_internal_ap50_95.{png,pdf}
+
+../analysis/outputs/tables/table_is_internal.tex
+../analysis/outputs/tables/table_class_ap_is.tex
+../analysis/outputs/tables/table_effect_deltas.tex
+../analysis/outputs/tables/table_scale_delta_comparison.tex
+../analysis/outputs/tables/table_seed_stability_internal.tex
+```
+
+Supporting markdown summaries are generated at:
+
+```text
+../analysis/outputs/RESULTS_INVENTORY.md
+../analysis/outputs/THESIS_RESULTS_SUMMARY.md
+../analysis/outputs/qualitative/QUALITATIVE_STATUS.md
+```
+
 ## Main Commands
 
 Run from `IS/`.
@@ -118,3 +144,4 @@ run_budgeted_mixed.sh      -> mixed
 - Synthetic-only models are evaluated both in-domain and on the real test split.
 - Mixed models are evaluated on both real and synthetic test splits.
 - The current IS pattern is scientifically plausible for a strong synthetic-to-real gap: synthetic-only performs well on synthetic data but transfers poorly to the real screw images; naive mixing does not outperform real-only on the current real test distribution.
+- Thesis-ready qualitative overlay examples are not currently committed, because the repository excludes both the image roots and the ignored `gt_*.json` / `preds_*.json` evaluation dumps needed to reconstruct overlays.

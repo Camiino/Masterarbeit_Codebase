@@ -1,21 +1,20 @@
 \begin{table}
-\centering
-\caption{ADD external KITTI performance.}
+\caption{External evaluation on KITTI using the selected best seed per setup.}
 \label{tab:add_kitti_results}
-\begin{tabular}{lllll}
+\begin{tabular}{llrrr}
 \toprule
-        Regime & Architecture & AP$_{50:95}$ & AP$_{50}$ & AP$_{75}$ \\
+Architecture & Regime & AP$_{50:95}$ & AP$_{50}$ & AP$_{75}$ \\
 \midrule
-     Real-only &      YOLOv8m &        0.261 &     0.483 &     0.258 \\
-     Real-only &   FasterRCNN &        0.202 &     0.425 &     0.169 \\
-Synthetic-only &      YOLOv8m &        0.165 &     0.349 &     0.141 \\
-Synthetic-only &   FasterRCNN &        0.181 &     0.393 &     0.151 \\
-  Hybrid 70/30 &      YOLOv8m &        0.259 &     0.485 &     0.253 \\
-  Hybrid 70/30 &   FasterRCNN &        0.202 &     0.417 &     0.179 \\
-  Hybrid 50/50 &      YOLOv8m &        0.244 &     0.467 &     0.234 \\
-  Hybrid 50/50 &   FasterRCNN &        0.210 &     0.427 &     0.190 \\
-  Hybrid 30/70 &      YOLOv8m &        0.241 &     0.461 &     0.230 \\
-  Hybrid 30/70 &   FasterRCNN &        0.209 &     0.427 &     0.189 \\
+YOLOv8m & Real-only & 0.261 & 0.483 & 0.258 \\
+YOLOv8m & Synthetic-only & 0.165 & 0.349 & 0.141 \\
+YOLOv8m & Hybrid 70/30 & 0.259 & 0.485 & 0.253 \\
+YOLOv8m & Hybrid 50/50 & 0.244 & 0.467 & 0.234 \\
+YOLOv8m & Hybrid 30/70 & 0.241 & 0.461 & 0.23 \\
+Faster R-CNN & Real-only & 0.202 & 0.425 & 0.169 \\
+Faster R-CNN & Synthetic-only & 0.181 & 0.393 & 0.151 \\
+Faster R-CNN & Hybrid 70/30 & 0.202 & 0.417 & 0.179 \\
+Faster R-CNN & Hybrid 50/50 & 0.21 & 0.427 & 0.19 \\
+Faster R-CNN & Hybrid 30/70 & 0.209 & 0.427 & 0.189 \\
 \bottomrule
 \end{tabular}
 \end{table}

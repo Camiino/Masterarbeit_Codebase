@@ -61,6 +61,33 @@ External/project/kitti_summary.md
 External/project/best_seed_checkpoints.json
 ```
 
+The repository-level thesis analysis pipeline aggregates ADD outputs into:
+
+```text
+../analysis/outputs/figures/add_internal_real_regime_comparison.{png,pdf}
+../analysis/outputs/figures/add_kitti_external_comparison.{png,pdf}
+../analysis/outputs/figures/class_heatmap_add_real_internal.{png,pdf}
+../analysis/outputs/figures/scale_delta_comparison.{png,pdf}
+../analysis/outputs/figures/synthetic_to_real_gap.{png,pdf}
+../analysis/outputs/figures/architecture_gap_summary.{png,pdf}
+../analysis/outputs/figures/seed_stability_internal_ap50_95.{png,pdf}
+
+../analysis/outputs/tables/table_add_internal.tex
+../analysis/outputs/tables/table_add_kitti.tex
+../analysis/outputs/tables/table_class_ap_add.tex
+../analysis/outputs/tables/table_effect_deltas.tex
+../analysis/outputs/tables/table_scale_delta_comparison.tex
+../analysis/outputs/tables/table_seed_stability_internal.tex
+```
+
+Supporting markdown summaries are generated at:
+
+```text
+../analysis/outputs/RESULTS_INVENTORY.md
+../analysis/outputs/THESIS_RESULTS_SUMMARY.md
+../analysis/outputs/qualitative/QUALITATIVE_STATUS.md
+```
+
 ## Main Commands
 
 Run from `ADD/`.
@@ -107,3 +134,4 @@ run_kitti_external_all_overnight.sh
 - External evaluation is run only for selected best-seed checkpoints, chosen by BDD real-target `AP_50_95` with `AP_50` as the tie-breaker.
 - The KITTI summary table is produced by `_Shared/scripts/13_summarize_kitti_external.py`.
 - The current KITTI trend is scientifically plausible: synthetic-only transfers poorly; mixed training can improve or preserve external generalization, especially for Faster R-CNN.
+- Thesis-ready qualitative overlay examples are not currently committed, because the repository excludes the underlying images and the ignored `gt_*.json` / `preds_*.json` evaluation dumps required to reconstruct them deterministically.

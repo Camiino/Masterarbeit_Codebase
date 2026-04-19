@@ -1,0 +1,30 @@
+\begin{table}
+\caption{Seed stability summary for internal real-test AP across scenarios, architectures, and regimes.}
+\label{tab:seed_stability}
+\begin{tabular}{llrrrrrr}
+\toprule
+Scenario & Architecture & Regime & Mean & Std & Min & Max & n \\
+\midrule
+ADD & Faster R-CNN & Hybrid 30/70 & 0.193 & 0.002 & 0.191 & 0.195 & 3 \\
+ADD & Faster R-CNN & Hybrid 50/50 & 0.205 & 0.001 & 0.204 & 0.205 & 3 \\
+ADD & Faster R-CNN & Hybrid 70/30 & 0.219 & 0.001 & 0.218 & 0.22 & 3 \\
+ADD & Faster R-CNN & Real-only & 0.217 & 0.001 & 0.216 & 0.218 & 3 \\
+ADD & Faster R-CNN & Synthetic-only & 0.083 & 0.002 & 0.081 & 0.085 & 3 \\
+ADD & YOLOv8m & Hybrid 30/70 & 0.28 & 0 & 0.279 & 0.28 & 3 \\
+ADD & YOLOv8m & Hybrid 50/50 & 0.305 & 0.002 & 0.303 & 0.307 & 3 \\
+ADD & YOLOv8m & Hybrid 70/30 & 0.371 & 0.002 & 0.369 & 0.373 & 3 \\
+ADD & YOLOv8m & Real-only & 0.39 & 0.003 & 0.388 & 0.393 & 3 \\
+ADD & YOLOv8m & Synthetic-only & 0.062 & 0.004 & 0.058 & 0.065 & 3 \\
+IS & Faster R-CNN & Hybrid 30/70 & 0.026 & 0.004 & 0.024 & 0.03 & 3 \\
+IS & Faster R-CNN & Hybrid 50/50 & 0.033 & 0.002 & 0.031 & 0.035 & 3 \\
+IS & Faster R-CNN & Hybrid 70/30 & 0.033 & 0.002 & 0.032 & 0.035 & 3 \\
+IS & Faster R-CNN & Real-only & 0.044 & 0 & 0.044 & 0.044 & 3 \\
+IS & Faster R-CNN & Synthetic-only & 0.006 & 0.002 & 0.005 & 0.008 & 3 \\
+IS & YOLOv8m & Hybrid 30/70 & 0.053 & 0.003 & 0.05 & 0.055 & 3 \\
+IS & YOLOv8m & Hybrid 50/50 & 0.06 & 0.002 & 0.057 & 0.061 & 3 \\
+IS & YOLOv8m & Hybrid 70/30 & 0.061 & 0.002 & 0.058 & 0.062 & 3 \\
+IS & YOLOv8m & Real-only & 0.064 & 0.002 & 0.062 & 0.066 & 3 \\
+IS & YOLOv8m & Synthetic-only & 0.01 & 0.002 & 0.008 & 0.012 & 3 \\
+\bottomrule
+\end{tabular}
+\end{table}

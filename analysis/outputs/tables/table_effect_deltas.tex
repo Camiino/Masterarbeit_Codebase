@@ -1,23 +1,30 @@
 \begin{table}
-\centering
-\caption{Hybrid-regime descriptive effects on real internal test sets.}
+\caption{Regime effects relative to real-only and synthetic-only training on internal real-test AP.}
 \label{tab:effect_deltas}
-\begin{tabular}{lllllll}
+\begin{tabular}{llrrrrr}
 \toprule
-Scenario & Architecture &       Regime &    AP & $\Delta$ vs real & $\Delta$ vs synthetic & YOLO--FRCNN gap \\
+Scenario & Architecture & Regime & AP$_{50:95}$ & $\Delta$ vs Real-only & $\Delta$ vs Synthetic-only & YOLOv8m - Faster R-CNN \\
 \midrule
-     ADD &   FasterRCNN & Hybrid 30/70 & 0.193 &           -0.023 &                 0.111 &           0.086 \\
-     ADD &   FasterRCNN & Hybrid 50/50 & 0.205 &           -0.012 &                 0.122 &           0.100 \\
-     ADD &   FasterRCNN & Hybrid 70/30 & 0.219 &            0.002 &                 0.136 &           0.153 \\
-     ADD &      YOLOv8m & Hybrid 30/70 & 0.280 &           -0.110 &                 0.218 &           0.086 \\
-     ADD &      YOLOv8m & Hybrid 50/50 & 0.305 &           -0.085 &                 0.243 &           0.100 \\
-     ADD &      YOLOv8m & Hybrid 70/30 & 0.371 &           -0.019 &                 0.309 &           0.153 \\
-      IS &   FasterRCNN & Hybrid 30/70 & 0.026 &           -0.018 &                 0.019 &           0.027 \\
-      IS &   FasterRCNN & Hybrid 50/50 & 0.033 &           -0.011 &                 0.026 &           0.027 \\
-      IS &   FasterRCNN & Hybrid 70/30 & 0.033 &           -0.011 &                 0.027 &           0.028 \\
-      IS &      YOLOv8m & Hybrid 30/70 & 0.053 &           -0.011 &                 0.043 &           0.027 \\
-      IS &      YOLOv8m & Hybrid 50/50 & 0.060 &           -0.005 &                 0.050 &           0.027 \\
-      IS &      YOLOv8m & Hybrid 70/30 & 0.061 &           -0.003 &                 0.051 &           0.028 \\
+ADD & Faster R-CNN & Hybrid 30/70 & 0.193 & -0.023 & 0.111 & 0.086 \\
+ADD & Faster R-CNN & Hybrid 50/50 & 0.205 & -0.012 & 0.122 & 0.1 \\
+ADD & Faster R-CNN & Hybrid 70/30 & 0.219 & 0.002 & 0.136 & 0.153 \\
+ADD & Faster R-CNN & Real-only & 0.217 & 0 & 0.134 & 0.173 \\
+ADD & Faster R-CNN & Synthetic-only & 0.083 & -0.134 & 0 & -0.021 \\
+ADD & YOLOv8m & Hybrid 30/70 & 0.28 & -0.11 & 0.218 & 0.086 \\
+ADD & YOLOv8m & Hybrid 50/50 & 0.305 & -0.085 & 0.243 & 0.1 \\
+ADD & YOLOv8m & Hybrid 70/30 & 0.371 & -0.019 & 0.309 & 0.153 \\
+ADD & YOLOv8m & Real-only & 0.39 & 0 & 0.328 & 0.173 \\
+ADD & YOLOv8m & Synthetic-only & 0.062 & -0.328 & 0 & -0.021 \\
+IS & Faster R-CNN & Hybrid 30/70 & 0.026 & -0.018 & 0.019 & 0.027 \\
+IS & Faster R-CNN & Hybrid 50/50 & 0.033 & -0.011 & 0.026 & 0.027 \\
+IS & Faster R-CNN & Hybrid 70/30 & 0.033 & -0.011 & 0.027 & 0.028 \\
+IS & Faster R-CNN & Real-only & 0.044 & 0 & 0.038 & 0.02 \\
+IS & Faster R-CNN & Synthetic-only & 0.006 & -0.038 & 0 & 0.004 \\
+IS & YOLOv8m & Hybrid 30/70 & 0.053 & -0.011 & 0.043 & 0.027 \\
+IS & YOLOv8m & Hybrid 50/50 & 0.06 & -0.005 & 0.05 & 0.027 \\
+IS & YOLOv8m & Hybrid 70/30 & 0.061 & -0.003 & 0.051 & 0.028 \\
+IS & YOLOv8m & Real-only & 0.064 & 0 & 0.054 & 0.02 \\
+IS & YOLOv8m & Synthetic-only & 0.01 & -0.054 & 0 & 0.004 \\
 \bottomrule
 \end{tabular}
 \end{table}

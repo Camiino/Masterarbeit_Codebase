@@ -1,21 +1,20 @@
 \begin{table}
-\centering
-\caption{ADD class-specific AP on the internal real test set.}
+\caption{Per-class internal real-test AP on the ADD scenario.}
 \label{tab:add_class_ap}
-\begin{tabular}{lllll}
+\begin{tabular}{llrrr}
 \toprule
-        Regime & Architecture &               car &           cyclist &        pedestrian \\
+Architecture & Regime & car & cyclist & pedestrian \\
 \midrule
-     Real-only &      YOLOv8m & 0.507 $\pm$ 0.000 & 0.315 $\pm$ 0.008 & 0.349 $\pm$ 0.001 \\
-     Real-only &   FasterRCNN & 0.382 $\pm$ 0.001 & 0.114 $\pm$ 0.000 & 0.155 $\pm$ 0.003 \\
-Synthetic-only &      YOLOv8m & 0.069 $\pm$ 0.007 & 0.021 $\pm$ 0.001 & 0.095 $\pm$ 0.004 \\
-Synthetic-only &   FasterRCNN & 0.161 $\pm$ 0.003 & 0.026 $\pm$ 0.002 & 0.061 $\pm$ 0.003 \\
-  Hybrid 70/30 &      YOLOv8m & 0.486 $\pm$ 0.001 & 0.291 $\pm$ 0.004 & 0.336 $\pm$ 0.003 \\
-  Hybrid 70/30 &   FasterRCNN & 0.385 $\pm$ 0.001 & 0.115 $\pm$ 0.004 & 0.156 $\pm$ 0.000 \\
-  Hybrid 50/50 &      YOLOv8m & 0.443 $\pm$ 0.001 & 0.192 $\pm$ 0.007 & 0.280 $\pm$ 0.001 \\
-  Hybrid 50/50 &   FasterRCNN & 0.362 $\pm$ 0.001 & 0.103 $\pm$ 0.002 & 0.149 $\pm$ 0.000 \\
-  Hybrid 30/70 &      YOLOv8m & 0.423 $\pm$ 0.000 & 0.158 $\pm$ 0.001 & 0.258 $\pm$ 0.001 \\
-  Hybrid 30/70 &   FasterRCNN & 0.348 $\pm$ 0.001 & 0.093 $\pm$ 0.006 & 0.140 $\pm$ 0.002 \\
+YOLOv8m & Real-only & 0.507 $\pm$ 0 & 0.315 $\pm$ 0.008 & 0.349 $\pm$ 0.001 \\
+YOLOv8m & Synthetic-only & 0.069 $\pm$ 0.007 & 0.021 $\pm$ 0.001 & 0.095 $\pm$ 0.004 \\
+YOLOv8m & Hybrid 70/30 & 0.486 $\pm$ 0.001 & 0.291 $\pm$ 0.004 & 0.336 $\pm$ 0.003 \\
+YOLOv8m & Hybrid 50/50 & 0.443 $\pm$ 0.001 & 0.192 $\pm$ 0.007 & 0.28 $\pm$ 0.001 \\
+YOLOv8m & Hybrid 30/70 & 0.423 $\pm$ 0 & 0.158 $\pm$ 0.001 & 0.258 $\pm$ 0.001 \\
+Faster R-CNN & Real-only & 0.382 $\pm$ 0.001 & 0.114 $\pm$ 0 & 0.155 $\pm$ 0.003 \\
+Faster R-CNN & Synthetic-only & 0.161 $\pm$ 0.003 & 0.026 $\pm$ 0.002 & 0.061 $\pm$ 0.003 \\
+Faster R-CNN & Hybrid 70/30 & 0.385 $\pm$ 0.001 & 0.115 $\pm$ 0.004 & 0.156 $\pm$ 0 \\
+Faster R-CNN & Hybrid 50/50 & 0.362 $\pm$ 0.001 & 0.103 $\pm$ 0.002 & 0.149 $\pm$ 0 \\
+Faster R-CNN & Hybrid 30/70 & 0.348 $\pm$ 0.001 & 0.093 $\pm$ 0.006 & 0.14 $\pm$ 0.002 \\
 \bottomrule
 \end{tabular}
 \end{table}

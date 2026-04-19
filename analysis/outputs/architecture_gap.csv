@@ -379,11 +379,11 @@ IS,small,hybrid_30_70,30,70,real_internal,IS_real,AR_100,phillips,,0.13295597484
 IS,small,hybrid_30_70,30,70,real_internal,IS_real,AR_100,slotted,,0.0,
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,all,0.5514806913694152,0.7753885420842739,0.22390785071485864
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,hex,0.9242660241873581,0.9303033792050684,0.0060373550177103
-IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,hex_socket,0.5620327581374793,0.9456714795014122,0.38363872136393284
+IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,hex_socket,0.5620327581374792,0.9456714795014122,0.38363872136393296
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,phillips,0.4929974736083977,0.6036910645188045,0.11069359091040681
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,pozidriv,0.1592569137991511,0.46264066172071433,0.3033837479215632
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,slotted,0.8051103477682932,0.7887599710197208,-0.016350376748572315
-IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,torx,0.3652206307158122,0.9212646965399235,0.5560440658241113
+IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50,torx,0.3652206307158123,0.9212646965399235,0.5560440658241113
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50_95,all,0.32970476792304654,0.6128891514492131,0.28318438352616654
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50_95,hex,0.5101067115757156,0.7499426397143916,0.23983592813867594
 IS,small,hybrid_30_70,30,70,synthetic_internal,IS_synth,AP_50_95,hex_socket,0.34561915531761916,0.7802652942455958,0.4346461389279766
@@ -441,7 +441,7 @@ IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,all,0.442559571573
 IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,hex,0.8497260134358027,0.8759135119289779,0.026187498493175254
 IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,hex_socket,0.3953774433154929,0.9305693261394409,0.5351918828239479
 IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,phillips,0.4309394539791162,0.44190860721135344,0.010969153232237239
-IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,pozidriv,0.09626400484918224,0.39075882921131716,0.2944948243621349
+IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,pozidriv,0.09626400484918222,0.39075882921131716,0.2944948243621349
 IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,slotted,0.7255603162929088,0.7541604169376631,0.028600100644754267
 IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50,torx,0.15749019756616703,0.7464844661179065,0.5889942685517395
 IS,small,hybrid_50_50,50,50,synthetic_internal,IS_synth,AP_50_95,all,0.2614268135930115,0.5310947149253811,0.26966790133236956
@@ -564,7 +564,7 @@ IS,small,synthetic_only,0,100,real_internal,IS_real,AP_50_95,all,0.0063998505516
 IS,small,synthetic_only,0,100,real_internal,IS_real,AP_50_95,phillips,0.0127997011032035,0.020350912359176198,0.007551211255972698
 IS,small,synthetic_only,0,100,real_internal,IS_real,AP_50_95,slotted,0.0,0.0,0.0
 IS,small,synthetic_only,0,100,real_internal,IS_real,AP_75,all,0.0025079641116707665,0.0023474006948428334,-0.00016056341682793313
-IS,small,synthetic_only,0,100,real_internal,IS_real,AP_75,phillips,0.005015928223341567,0.004694801389685733,-0.00032112683365583417
+IS,small,synthetic_only,0,100,real_internal,IS_real,AP_75,phillips,0.005015928223341567,0.0046948013896857335,-0.0003211268336558333
 IS,small,synthetic_only,0,100,real_internal,IS_real,AP_75,slotted,0.0,0.0,0.0
 IS,small,synthetic_only,0,100,real_internal,IS_real,AR_1,all,0.012452830188679168,0.010188679245282967,-0.002264150943396201
 IS,small,synthetic_only,0,100,real_internal,IS_real,AR_1,phillips,,0.020377358490566,
